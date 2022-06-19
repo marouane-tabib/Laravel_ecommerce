@@ -24,18 +24,39 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('back/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="img/favicon.png">
+    @yield('style')
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 
-<body>
-    <div id="app" class="page-holder {{ request()->route('front.detail') ? 'bg-light' : null }}">
+<body id="page-top">
+    <div id="app">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            @include('partail.back.sidebar')
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
+                <div id="content">
+                    @include('partail.back.navbar')
 
-        <div class="container">
-            @yield('content')
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+                        @yield('content')
+                    </div>
+
+                </div>
+                @include('partail.back.footer')
+            </div>
         </div>
 
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        @include('partail.back.model')
     </div>
+    
 </body>
 
     <!-- Scripts -->
@@ -46,12 +67,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('back/js/sb-admin-2.min.js') }}"></script>
-
-    <!-- Page level plugins -->
-    <script src="{{ asset('back/vendor/chart.js/Chart.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('back/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('back/js/demo/chart-pie-demo.js') }}"></script>
+    @yield('script')
 
 </html>

@@ -21,7 +21,9 @@ Route::get('/checkout' , [FrontController::class , 'checkout'])->name('front.che
 Route::get('/detail' , [FrontController::class , 'detail'])->name('front.detail');
 Route::get('/shop' , [FrontController::class , 'shop'])->name('front.shop');
 
+Route::get('/admin/index' , [BackController::class , 'index'])->name('back.index');
 Route::get('/admin/login' , [BackController::class , 'login'])->name('back.login');
+Route::get('/admin/forgot-password' , [BackController::class , 'forgot_password'])->name('back.forgot_password');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
