@@ -25,5 +25,5 @@ Route::get('/admin/index' , [BackController::class , 'index'])->name('back.index
 Route::get('/admin/login' , [BackController::class , 'login'])->name('back.login');
 Route::get('/admin/forgot-password' , [BackController::class , 'forgot_password'])->name('back.forgot_password');
 
-Auth::routes();
+Auth::routes(['verfiy' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
