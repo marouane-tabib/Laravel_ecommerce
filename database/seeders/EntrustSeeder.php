@@ -26,21 +26,22 @@ class EntrustSeeder extends Seeder
         $customerRole = Role::create(['name' => 'customer' , 'display_name' => 'Customer' , 'description' => 'Customer' , 'allowed_route' => null]);
 
         // Admin User with adminRole
-        $admin = User::create([ 'first_name' => 'Admin' , 'last_name' => 'System' , 'email' =>'admin@ecommerce.test' , 'email_verified_at' => now() , 'mobile' => '93049585989' , 'password' => bcrypt('123123123') , 'user_image' => 'avatar.svg' , 'status' => 1, 'remember_token' => Str::random(10) ]); 
+        $admin = User::create([ 'first_name' => 'Admin' , 'last_name' => 'System' , 'email' =>'admin@ecommerce.test' ,'username' => 'admin', 'email_verified_at' => now() , 'mobile' => '93049585989' , 'password' => bcrypt('123123123') , 'user_image' => 'avatar.svg' , 'status' => 1, 'remember_token' => Str::random(10) ]); 
         $admin->attachRole($adminRole);
 
         // Supervisor User with supervisorRole
-        $supervisor = User::create([ 'first_name' => 'Supervisor' , 'last_name' => 'System' , 'email' =>'supervisor@ecommerce.test' , 'email_verified_at' => now() , 'mobile' => '93049585999' , 'password' => bcrypt('123123123') , 'user_image' => 'avatar.svg' , 'status' => 1, 'remember_token' => Str::random(10) ]); 
+        $supervisor = User::create([ 'first_name' => 'Supervisor' , 'last_name' => 'System' , 'email' =>'supervisor@ecommerce.test' ,'supervisor' => 'marwan', 'email_verified_at' => now() , 'mobile' => '93049585999' , 'password' => bcrypt('123123123') , 'user_image' => 'avatar.svg' , 'status' => 1, 'remember_token' => Str::random(10) ]); 
         $supervisor->attachRole($supervisorRole);
 
         // Customer User with customerRole
-        $customer = User::create([ 'first_name' => 'Sami' , 'last_name' => 'mansur' , 'email' =>'customer@gmail.com' , 'email_verified_at' => now() , 'mobile' => '99049585999' , 'password' => bcrypt('123123123') , 'user_image' => 'avatar.svg' , 'status' => 1, 'remember_token' => Str::random(10) ]); 
+        $customer = User::create([ 'first_name' => 'marwan' , 'last_name' => 'tabib' , 'email' =>'marwan@gmail.com' ,'username' => 'marwan', 'email_verified_at' => now() , 'mobile' => '99049585999' , 'password' => bcrypt('123123123') , 'user_image' => 'avatar.svg' , 'status' => 1, 'remember_token' => Str::random(10) ]); 
         $customer->attachRole($customer);
 
         for($i=1 ; $i<=20 ; $i++){
             $random_customer = User::create([
                 'first_name' =>  'firstName'.$i,
-                'Last_name' => 'lastName'.$i,
+                'last_name' => 'lastName'.$i,
+                'username' => 'username'.$i,
                 'email' =>  'user'. $i .'@gmail.com',
                 'email_verified_at' => now(),
                 'mobile' => '06'. $i * 3040,
